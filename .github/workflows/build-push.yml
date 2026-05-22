@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: microtodo:v1
+      IMAGE_NAME: microtodo
       IMAGE_TAG: v1
       ACR_NAME: ACR22
       ACR_LOGIN_SERVER: azurecr.io
