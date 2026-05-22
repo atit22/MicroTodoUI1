@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: todo-ui
-      IMAGE_TAG: v4
-      ACR_NAME: devopsinsidersacr235
-      ACR_LOGIN_SERVER: devopsinsidersacr235.azurecr.io
+      IMAGE_NAME: microtodo:v1
+      IMAGE_TAG: v1
+      ACR_NAME: ACR22
+      ACR_LOGIN_SERVER: azurecr.io
 
     steps:
       - name: Checkout code
@@ -24,9 +24,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: ff27bcf6-f60c-4a57-8b01-8eee5de2a9cd
-          tenant-id: 0f7010fd-209e-4344-8457-043ffb37143b
-          subscription-id: 1075ec7a-b17a-4f37-bf3f-9d68c4506dc1
+          client-id: e8b48fab-a267-4787-8581-a861d93d22d7
+          tenant-id: bf1ea6d6-1a42-4fc7-b801-aaddf0e26bfe
+          subscription-id: 50d7f43f-63cc-4cf6-8829-1542e9da33ea
 
       - name: Log in to ACR
         run: |
