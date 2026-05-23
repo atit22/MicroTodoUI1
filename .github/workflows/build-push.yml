@@ -14,8 +14,8 @@ jobs:
     env:
       IMAGE_NAME: microtodo
       IMAGE_TAG: v1
-      ACR_NAME: ACR22
-      ACR_LOGIN_SERVER: ACR22.azurecr.io
+      ACR_NAME: acr22
+      ACR_LOGIN_SERVER: acr22.azurecr.io
 
     steps:
       - name: Checkout code
