@@ -13,7 +13,7 @@ jobs:
 
     env:
       IMAGE_NAME: microtodo
-      IMAGE_TAG: v1
+      IMAGE_TAG: v2
       ACR_NAME: acr22
       ACR_LOGIN_SERVER: acr22.azurecr.io
 
