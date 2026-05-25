@@ -6,10 +6,11 @@ on:
    types:
     - completed
 
-  jobs:
-    run-on: ubuntu-latest
+jobs:
+  deploy_aks:
+    runs-on: ubuntu-latest
     steps: 
-     - name: Checkout
-       uses: actions/checkout@v6.0.2 
-     - name: deploy AKS
-       run: kubectl apply -f deployment.yaml
+    - name: Checkout
+      uses: actions/checkout@v6.0.2 
+    - name: deploy AKS
+      run: kubectl apply -f deployment.yaml
