@@ -2,7 +2,7 @@ name: deploy AKS
 
 on: 
   workflow_run:
-   workflows: ["Build and Push ACR"]
+   workflows: ["Build and Push to ACR"]
    types:
     - completed
 
