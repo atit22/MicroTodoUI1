@@ -11,6 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout
-      uses: actions/checkout@v6.0.2 
-    - name: deploy AKS
+      uses: actions/checkout@v6.0.2
+    - name: Azure Login
+      uses: Azure/login@v3
+      with:
+       client-id: e8b48fab-a267-4787-8581-a861d93d22d7
+       tenant-id: bf1ea6d6-1a42-4fc7-b801-aaddf0e26bfe
+       subscription-id: 50d7f43f-63cc-4cf6-8829-1542e9da33ea
+    - name: AKS Login (wemogy)
+      uses: wemogy/aks-login-action@1.2.1
+      with:
+       name: aks-cluster
+       resource-group: Vivek_AKS_RG
+    - name: login to AKS
       run: kubectl apply -f deployment.yaml
