@@ -14,8 +14,8 @@ jobs:
     env:
       IMAGE_NAME: microtodo
       IMAGE_TAG: v2
-      ACR_NAME: acr22
-      ACR_LOGIN_SERVER: acr22.azurecr.io
+      ACR_NAME: acr222
+      ACR_LOGIN_SERVER: acr222.azurecr.io
 
     steps:
       - name: Checkout code
@@ -24,9 +24,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: e8b48fab-a267-4787-8581-a861d93d22d7
-          tenant-id: bf1ea6d6-1a42-4fc7-b801-aaddf0e26bfe
-          subscription-id: 50d7f43f-63cc-4cf6-8829-1542e9da33ea
+          client-id: 49f815ef-c5cb-4376-855a-c61b5bfb51a6
+          tenant-id: c9e1671a-0acd-4412-ba55-018fc27d1f62
+          subscription-id: 8fc57fc2-9cc4-4bcb-8c0f-315512d0cba3
 
       - name: Log in to ACR
         run: |
@@ -35,6 +35,7 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
+          
 
       - name: Tag Docker Image for ACR
         run: |
