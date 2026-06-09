@@ -4,28 +4,28 @@ on:
  workflow_dispatch:
 
 permissions:
-id-token: write
-contents: read
+ id-token: write
+ contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-  steps:
-   - name: checkout code
-     uses: actions/checkout@v3
-   - name: Azure Login
-     uses: Azure/login@v2.3.0
-     with:
-          client-id: 49f815ef-c5cb-4376-855a-c61b5bfb51a6
-          tenant-id: c9e1671a-0acd-4412-ba55-018fc27d1f62
-          subscription-id: 8fc57fc2-9cc4-4bcb-8c0f-315512d0cba3
-    - name: aks connect
-      run: az aks get-credentials --resource-group Vivek_AKS_RG --name aks-cluster --overwrite-existing
-    - name: deploy
-      run: |
-           kubectl apply -f manifests/deployment.yaml
-           kubectl apply -f manifests/service.yaml
-           kubectl apply -f manifests/ingress.yaml
+    steps:
+     - name: checkout code
+       uses: actions/checkout@v3
+     - name: Azure Login
+       uses: Azure/login@v2.3.0
+       with:
+            client-id: 49f815ef-c5cb-4376-855a-c61b5bfb51a6
+            tenant-id: c9e1671a-0acd-4412-ba55-018fc27d1f62
+            subscription-id: 8fc57fc2-9cc4-4bcb-8c0f-315512d0cba3
+     - name: aks connect
+       run: az aks get-credentials --resource-group Vivek_AKS_RG --name aks-cluster --overwrite-existing
+     - name: deploy
+       run: |
+             kubectl apply -f manifests/deployment.yaml
+             kubectl apply -f manifests/service.yaml
+             kubectl apply -f manifests/ingress.yaml
      - name: deployment check
        run: kubectl get deploy
 
