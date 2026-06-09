@@ -9,7 +9,7 @@ contents: read
 
 jobs:
   deploy:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
   steps:
    - name: checkout code
      uses: actions/checkout@v3
@@ -22,9 +22,10 @@ jobs:
     - name: aks connect
       run: az aks get-credentials --resource-group Vivek_AKS_RG --name aks-cluster --overwrite-existing
     - name: deploy
-      run: kubectl apply -f mainifests/deployment.yaml
-           kubectl apply -f mainifests/service.yaml
-           kubectl apply -f mainifests/ingress.yaml
+      run: |
+           kubectl apply -f manifests/deployment.yaml
+           kubectl apply -f manifests/service.yaml
+           kubectl apply -f manifests/ingress.yaml
      - name: deployment check
        run: kubectl get deploy
 
