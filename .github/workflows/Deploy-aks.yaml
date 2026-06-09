@@ -1,7 +1,7 @@
 name: deply to aks
 
 on:
- workflow-dispatch:
+ workflow_dispatch:
 
 permissions:
 id-token: write
