@@ -17,7 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: checkout code
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
+       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
      - name: Update deployment image
        run: |
         sed -i "s|image:.*|image: myacr.azurecr.io/microtodo:${{ github.run_number }}|g" manifests/deployment.yaml
