@@ -1,4 +1,4 @@
-name: deply to aks
+name: deploy to akss
 
 on:
  # workflow_dispatch:
