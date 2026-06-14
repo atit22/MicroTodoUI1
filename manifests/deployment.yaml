@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: todo-ui
-        image: myacr.azurecr.io/microtodo:18
+        image: acr222.azurecr.io/microtodo:18
         ports:
         - containerPort: 80
