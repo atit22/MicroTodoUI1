@@ -22,7 +22,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
      - name: Update deployment image
        run: |
-        sed -i "s|image:.*|image: myacr.azurecr.io/microtodo:${{ github.run_number }}|g" manifests/deployment.yaml
+        sed -i "s|image:.*|image: acr222.azurecr.io/microtodo:${{ github.run_number }}|g" manifests/deployment.yaml
      - name: Commit changes
        run: |
           git config user.name "github-actions"
