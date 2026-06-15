@@ -12,6 +12,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: todo-ui
+            name: {{.Release.Name}}
             port: 
               number: 80
