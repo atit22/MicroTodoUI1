@@ -22,15 +22,16 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
      - name: Update deployment image
        run: |
-        sed -i "s|image:.*|image: acr222.azurecr.io/microtodo:${{ github.event.workflow_run.run_number }}|g" manifests/templates/deployment.yaml
-     - name: helm deploy
-       run: |
-        helm upgrade --install dev ./manifests
+        # sed -i "s|image:.*|image: acr222.azurecr.io/microtodo:${{ github.event.workflow_run.run_number }}|g" manifests/templates/deployment.yaml
+          sed -i "s/tag:.*/tag: "${{github.event.workflow_run.run_number}}"/" manifests/values-dev.yaml
+     # - name: helm deploy
+     #   run: |
+     #    helm upgrade --install dev ./manifests
      - name: Commit changes
        run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add manifests/templates/deployment.yaml
+          git add manifests/values-dev.yaml
           git commit -m "Update image tag to ${{ github.run_number }}" || exit 0
           git push
      # - name: Azure Login
