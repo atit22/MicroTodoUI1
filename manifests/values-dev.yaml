@@ -1,0 +1,5 @@
+image:
+  repository: acr222.azurecr.io/microtodo
+  tag: 1
+
+replicaCount: 1
