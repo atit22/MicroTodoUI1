@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{.Release.Name}}
 spec:
-  replicas: 2
+  replicas: {{.Values.replicaCount}}
   selector:
     matchLabels:
       app: {{.Release.Name}}
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: {{.Release.Name}}
-        image: acr222.azurecr.io/microtodo:20
+        image: "{{.Values.image.repository}}:{{Values.image.tag}}"
         ports:
         - containerPort: 80
