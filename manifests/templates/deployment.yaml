@@ -16,6 +16,6 @@ spec:
       containers:
       - name: todo-ui
         # image: "{{.Values.image.repository}}:{{.Values.image.tag}}"
-          image: acr222.azurecr.io/microtodo:22
+        image: acr222.azurecr.io/microtodo:22
         ports:
         - containerPort: 80
