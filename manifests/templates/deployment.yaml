@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   name: todo-ui
 spec:
- # replicas: {{.Values.replicaCount}}
-  replicas: 1
+  replicas: {{.Values.replicaCount}}
+  
   selector:
     matchLabels:
       app: todo-ui
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: todo-ui
-        # image: "{{.Values.image.repository}}:{{.Values.image.tag}}"
-        image: acr222.azurecr.io/microtodo:22
+        image: "{{.Values.image.repository}}:{{.Values.image.tag}}"
+        # image: acr222.azurecr.io/microtodo:22
         ports:
         - containerPort: 80
