@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: todo-ui
 spec:
-  replicas: {{.Values.replicaCount}}
+  # replicas: {{.Values.replicaCount}}
+    replicas: 1
   selector:
     matchLabels:
       app: todo-ui
