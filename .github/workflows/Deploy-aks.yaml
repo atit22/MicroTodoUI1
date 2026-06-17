@@ -6,7 +6,17 @@ on:
   workflows: ["Build and Push to ACR"]
   types: 
    - completed
-
+ workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select environment"
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - qa
+          - prod
 permissions:
  id-token: write
  contents: write
@@ -23,7 +33,7 @@ jobs:
      - name: Update deployment image
        run: |
         # sed -i "s|image:.*|image: acr222.azurecr.io/microtodo:${{ github.event.workflow_run.run_number }}|g" manifests/templates/deployment.yaml
-          sed -i "s/tag:.*/tag: "${{github.event.workflow_run.run_number}}"/" manifests/values-dev.yaml
+          sed -i "s/tag:.*/tag: "${{github.event.workflow_run.run_number}}"/" manifests/values-${{github.event.inputs.environment}}.yaml
      # - name: helm deploy
      #   run: |
      #    helm upgrade --install dev ./manifests
