@@ -28,26 +28,26 @@ jobs:
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #     SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
-      - name: Azure Login
-        uses: Azure/login@v2.3.0
-        with:
+     - name: Azure Login
+       uses: Azure/login@v2.3.0
+       with:
           client-id: 49f815ef-c5cb-4376-855a-c61b5bfb51a6
           tenant-id: c9e1671a-0acd-4412-ba55-018fc27d1f62
           subscription-id: 8fc57fc2-9cc4-4bcb-8c0f-315512d0cba3
 
-      - name: Log in to ACR
-        run: |
+     - name: Log in to ACR
+       run: |
           az acr login --name $ACR_NAME
 
-      - name: Build Docker Image
-        run: |
+     - name: Build Docker Image
+       run: |
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           
 
-      - name: Tag Docker Image for ACR
-        run: |
+     - name: Tag Docker Image for ACR
+       run: |
           docker tag $IMAGE_NAME:$IMAGE_TAG $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG
 
-      - name: Push Docker Image to ACR
-        run: |
+     - name: Push Docker Image to ACR
+       run: |
           docker push $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG
