@@ -10,7 +10,9 @@ permissions:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
+    environment: qa
+    steps:
+     - run: echo "deploying to qa"
     env:
       IMAGE_NAME: microtodo
       IMAGE_TAG: ${{ github.run_number }}
